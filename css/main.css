@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --index: calc(1vw + 1vh);
+
+}
+
+@font-face {
+    font-family: kamerik-3d;
+    src: url(../fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+@font-face {
+    font-family: merriwheather-italic-3d;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+    font-weight: 50;
+}
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: kamerik-3d;
+}
+
+.logo{
+    --logo-size: calc(var(--index) * 7);
+    width: var(--logo-size);
+    height: var(--logo-size);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: calc(50% - calc(var(--logo-size)) / 2);
+    top: calc(var(--index) * 3);
+    z-index: 1;
+}
+
+.layers{
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers__container{
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    transition: transform: 2s ease-in-out;
+}
+.layers__item{
+    position: absolute;
+    inset: -5vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.layer-1{
+    transform: translateZ(-75px) scale(1.06);
+}
+.layer-2{
+    transform: translateZ(80px) scale(.95);
+}
+.layer-3{
+    transform: translateZ(180px) scale(.95);
+}
+.layer-4{
+    transform: translateZ(190px) scale(.95);
+}
+.layer-5{
+    transform: translateZ(300px) scale(.95);
+}
+.layer-6{
+    transform: translateZ(380px);
+}
+.hero-content {
+    font-size: calc(var(--index) * 1.5);
+}
+.hero-content span{
+    display: block;
+}
+.hero-content__p{
+    text-transform: none;
+    font-family: merriwheather-italic-3d;
+    letter-spacing: normal;
+    font-size: calc(var(--index) * .8);
+    line-height: 2;
+}
+
+.button-start{
+    font-family: Arial;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * .7);
+    letter-spacing: -.04vw;
+    padding: calc(var(--index) * .2) calc(var(--index) * 1);
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10em;
+    border: rgb(255 255 255 / .4) 3px solid;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.layer-4, .layer-5, .layer-6{
+    pointer-events: none;
+}
